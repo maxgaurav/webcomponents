@@ -1,12 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Web Components</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/0.7.24/CustomElements.js"></script>
-    <link rel="import" href="slider.html">
-</head>
-<body>
 <template>
     <style>
         .slider-holder {
@@ -83,26 +74,20 @@
 </template>
 
 <script>
-//     Grab our template full of slider markup and styles
-        var tmpl = document.querySelector('template');
+    //     Grab our template full of slider markup and styles
+    var tmpl = document.querySelector('template');
 
-        // Create a prototype for a new element that extends HTMLElement
-        var ImgSliderProto = Object.create(HTMLElement.prototype);
+    // Create a prototype for a new element that extends HTMLElement
+    var ImgSliderProto = Object.create(HTMLElement.prototype);
 
-        // Setup our Shadow DOM and clone the template
-        ImgSliderProto.createdCallback = function() {
-            var root = this.createShadowRoot();
-            root.appendChild(document.importNode(tmpl.content, true));
-        };
+    // Setup our Shadow DOM and clone the template
+    ImgSliderProto.createdCallback = function() {
+        var root = this.createShadowRoot();
+        root.appendChild(document.importNode(tmpl.content, true));
+    };
 
-        // Register our new element
-        var ImgSlider = document.registerElement('img-slider', {
-            prototype: ImgSliderProto
-        });
+    // Register our new element
+    var ImgSlider = document.registerElement('img-slider-imp', {
+        prototype: ImgSliderProto
+    });
 </script>
-
-<img-slider></img-slider>
-<div style="height: 10px"></div>
-<img-slider-imp></img-slider-imp>
-</body>
-</html>
